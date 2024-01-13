@@ -2,6 +2,7 @@ version: '3'
 services:
   ssl:
     image: certbot/certbot:latest
+    container_name: "ssl"
     volumes:
       - certbot-www:/var/www/certbot/:rw
       - certbot-etc:/etc/letsencrypt/:rw
