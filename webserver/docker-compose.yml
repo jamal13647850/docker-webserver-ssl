@@ -15,8 +15,10 @@ services:
 
 volumes:
   certbot-etc:
+    external: true
   certbot-www:
+    external: true
 
 networks:
   nginxnetwork:
-    driver: bridge
+    external: true
