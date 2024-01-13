@@ -1,0 +1,22 @@
+version: '3'
+services:
+  webserver:
+    image: nginx:1.25.3
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - certbot-www:/var/www/certbot/:ro
+      - certbot-etc:/etc/letsencrypt/:ro
+    networks:
+      - nginxnetwork
+
+volumes:
+  certbot-etc:
+  certbot-www:
+
+networks:
+  nginxnetwork:
+    driver: bridge

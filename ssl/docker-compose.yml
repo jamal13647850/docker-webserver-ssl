@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ssl:
+    image: certbot/certbot:latest
+    volumes:
+      - certbot-www:/var/www/certbot/:rw
+      - certbot-etc:/etc/letsencrypt/:rw
+    networks:    
+      - nginxnetwork
+
+volumes:
+  certbot-etc:
+  certbot-www:
+
+networks:
+  nginxnetwork:
+    external: true
