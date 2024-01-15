@@ -26,3 +26,7 @@ if [ ! "$(docker volume ls -q -f name=${VOLUME_CERTBOT_WWW})" ]; then
 else
     echo "Docker volume ${VOLUME_CERTBOT_WWW} already exists."
 fi
+
+
+cd webserver
+docker compose up -d
